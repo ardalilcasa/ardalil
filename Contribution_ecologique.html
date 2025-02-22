@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArDalil - </title>
+  <meta name="description" content="Découvrez notre catalogue de plantes sur ArDalil. Commandez vos plantes préférées directement via WhatsApp.">
+  <style>
+    /* Réinitialisation de quelques styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Georgia', serif;
+      
+      background-color: rgb(255, 255, 255);
+      color: #3f6b28;
+      line-height: 1.6;
+      padding: 20px;
+      
+    }
+    
+    /* Header */
+    header {
+      background-color: #ffffff;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      margin-bottom: 50px;
+      margin-top: -20px;
+      margin-left: -2%;
+      margin-right: -2%;
+      transition: background-color 0.3s, padding 0.3s;
+    }
+    
+    /* Header fixe après scroll */
+    header.fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #758467; /* Nouvelle couleur de fond */
+      padding: 10px 20px;       /* Padding réduit */
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      margin: 0;
+
+      z-index: 1000;
+    }
+    
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: #3f6b28;
+      text-align: center;
+      transition: color 1s;
+    }
+    
+    /* Changement de couleur du texte du header une fois fixe */
+    header.fixed h1 {
+      color: #ffffff;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: auto;
+
+    }
+    
+    /* Grille des produits */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    
+    /* Carte Produit */
+    .card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    }
+    
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .card-content {
+      padding: 15px;
+      flex-grow: 1;
+    }
+    
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #3f6b28;
+    }
+    
+    .card p {
+      margin-bottom: 10px;
+      color: #666;
+    }
+    
+    .card .price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #3f6b28;
+      margin-bottom: 15px;
+    }
+    
+    .whatsapp-button {
+      background-color: #3f6b28;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 25px;
+      text-align: center;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    
+    .whatsapp-button:hover {
+      background-color: #2d4a1d;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+      margin-top: 40px;
+    }
+    
+    footer p {
+      font-size: 14px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 28px;
+      }
+      .card h3 {
+        font-size: 20px;
+      }
+      .card p, .card .price {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- En-tête -->
+  <header id="header">
+    <div class="container">
+      <h1>Contribution écologique - ArDalil</h1>
+    </div>
+  </header>
+  
+  <!-- Contenu principal -->
+  <div class="container">
+    <section class="products-grid">
+      <!-- Carte Produit Exemple -->
+      <div class="card">
+        <img src="Contribution_ecologique/1.png" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Papaver rhoeas</h3>
+          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
+          <p class="price">25€</p>
+          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
+        </div>
+      </div>
+      
+      <!-- Répétez les cartes produits selon vos besoins -->
+      <div class="card">
+        <img src="Contribution_ecologique/2.png" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Chlorophytum comosum</h3>
+          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
+          <p class="price">25€</p>
+          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
+        </div>
+      </div>
+      
+      <div class="card">
+        <img src="Contribution_ecologique/3.png" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Borago officinalis</h3>
+          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
+          <p class="price">25€</p>
+          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Contribution_ecologique/4.png" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Hedera helix</h3>
+          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
+          <p class="price">25€</p>
+          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Contribution_ecologique/5.png" alt="Plante Verte">
+        <div class="card-content">
+          <h3>cerise</h3>
+          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
+          <p class="price">25€</p>
+          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Contribution_ecologique/6.png" alt="Plante Verte">
+        <div class="card-content">
+          <h3>poire Comice</h3>
+          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
+          <p class="price">25€</p>
+          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Contribution_ecologique/7.png" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Plante Verte</h3>
+          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
+          <p class="price">25€</p>
+          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Contribution_ecologique/8.png" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Plante Verte</h3>
+          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
+          <p class="price">25€</p>
+          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Contribution_ecologique/9.png" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Plante Verte</h3>
+          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
+          <p class="price">25€</p>
+          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Contribution_ecologique/10.png" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Plante Verte</h3>
+          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
+          <p class="price">25€</p>
+          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Contribution_ecologique/11.png" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Plante Verte</h3>
+          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
+          <p class="price">25€</p>
+          <a href="https://wa.me/0719462752text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Contribution_ecologique/12.png" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Plante Verte</h3>
+          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
+          <p class="price">25€</p>
+          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
+        </div>
+      </div>
+      
+      <!-- Ajoutez d'autres cartes produits au besoin -->
+    </section>
+  </div>
+  
+  <!-- Pied de page -->
+  <footer>
+    <p>&copy; 2025 ArDalil. Tous droits réservés.</p>
+  </footer>
+  
+  <!-- Script JavaScript pour le comportement du header lors du scroll -->
+  <script>
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('fixed');
+      } else {
+        header.classList.remove('fixed');
+      }
+    });
+  </script>
+</body>
+</html>
