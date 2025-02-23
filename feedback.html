@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - ArDalil</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #3f6b28;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #3f6b28;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        header .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        header .logo img {
+            height: 60px;
+            width: 95px;
+        }
+
+        header .slogan {
+            font-style: italic;
+            font-size: 18px;
+            color: #3f6b28;
+            text-align: right;
+            line-height: 1.2;
+        }
+
+        header .slogan span {
+            display: block;
+        }
+
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: #3f6b28;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #0e1809;
+        }
+
+        /* Feedback Section Styles */
+        .feedback-section {
+            padding: 60px 20px;
+            background-color: #f4f1ea; /* Couleur de fond douce */
+            text-align: center;
+        }
+
+        .feedback-section h2 {
+            font-size: 36px;
+            color: #3f6b28;
+            margin-bottom: 40px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .feedback-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 18px;
+            color: #3f6b28;
+            margin-bottom: 10px;
+        }
+         
+        .form-group input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #3f6b28;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #3f6b28;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical; /* Permet à l'utilisateur de redimensionner verticalement */
+        }
+
+        .feedback-form button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #3f6b28;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .feedback-form button:hover {
+            background-color: #2d4a1d;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #ffffff;
+            color: #3f6b28;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="logoardalil.PNG" alt="ArDalil Logo">
+            </div>
+            <div class="slogan">
+                <span>Grow green,</span>
+                <span> live clean</span>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="index.html">Boutique</a>
+            <a href="index.html">Nouveauté</a>
+            <a href="rechercher.html">Rechercher</a>
+            <a href="feedback.html">Avis</a> <!-- Lien vers la page de feedback -->
+        </nav>
+    </header>
+    <script>
+        document.querySelector('.feedback-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Empêche le rechargement de la page
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+    
+            // Afficher un message de confirmation
+            alert(`Merci, ${name} ! Votre message a été envoyé.`);
+            
+            // Réinitialiser le formulaire
+            document.querySelector('.feedback-form').reset();
+        });
+    </script>
+    <!-- Feedback Section -->
+    <section class="feedback-section">
+        <h2>Votre Avis Nous Intéresse</h2>
+        <form class="feedback-form" action="https://formspree.io/f/mwpvzyop" method="POST">
+            <div class="form-group">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Numéro de Téléphone :</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Que pensez-vous de notre service ?</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ArDalil. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

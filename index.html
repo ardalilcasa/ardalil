@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArDalil</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #3f6b28;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #3f6b28;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: relative; /* Ensure the shadow is visible */
+            z-index: 10; /* Ensure the header is above other elements */
+        }
+
+        header .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        header .logo img {
+            height: 60px; /* Adjust the height as needed */
+            width: 95px;
+        }
+        header .slogan {
+            font-style: italic;
+            font-size: 18px;
+            color: #3f6b28;
+            text-align: right;
+            line-height: 1.2;
+        }
+        header .slogan span {
+            display: block;
+        }
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: #3f6b28;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #0e1809;
+        }
+
+        /* Welcome Section Styles */
+        .welcome-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 20px;
+            background-color:#758467 ;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+                      
+        }
+
+        .welcome-section .text-container {
+            flex: 1;
+            padding-right: 40px;
+            animation: fadeInLeft 1.5s ease-in-out;
+            left:20%;
+            
+        }
+
+        .welcome-section h1 {
+            font-size: 40px;
+            margin-bottom: 20px; /* Add margin for spacing */
+            font-family: 'Playfair Display', serif;
+            margin-left:70px;
+        }
+
+        /* Buy Now Button Styles */
+       .buy-now-button {
+            display: inline-block;
+            background-color: #ffffff; /* White background */
+            color: #3f6b28; /* Green text color */
+            padding: 10px 15px; /* Padding for button size */
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px; /* Slightly rounded corners */
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-top: 20px; /* Add margin to separate from the heading */
+            text-align: center;
+            margin-left: 200px;
+        }
+
+        .buy-now-button:hover {
+            background-color: #3f6b28; /* Green background on hover */
+            color: #ffffff; /* White text on hover */
+        }
+
+
+        .welcome-section .image-container {
+            flex: 1;
+            display: flex;
+            gap: 20px;
+            position: relative;
+            animation: fadeInRight 1.5s ease-in-out;
+            padding-left: 20%; /* Push the main images to the middle */
+            left: 10%;
+        }
+
+        .welcome-section .image-container img {
+            width: 200px;
+            height: 300px;
+            border-radius: 20px;
+            /**box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.2);*********L9dime******/
+            box-shadow: 30px 30px 1px 2px rgba(255, 255, 255, 0.692);
+            transition: transform 0.3s ease;
+        }
+
+        /* Stair Effect */
+        .welcome-section .image-container img:first-child {
+        transform: translateY(-20px); /* Move the first image up */
+        }
+        
+        .welcome-section .image-container img:last-child {
+        transform: translateY(20px); /* Move the second image down */
+        }
+
+        .welcome-section .image-container img:hover {
+            transform: scale(1.05);
+        }
+
+
+         /* Le Saviez-vous Section Styles */
+        .info-block {
+            padding: 220px 20px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            height: 300px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;  
+        }
+
+        .info-block h2 {
+            font-size: 24px; /* Increased font size for better readability */
+            color: #3f6b28; /* Use a darker color for better contrast */
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        .info-content {
+            flex: 1;
+            text-align: left;
+            padding-right: 40px; /* Add some spacing between text and image */
+        }
+
+        .info-block span {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6; /* Improve readability with line height */
+        } 
+
+        .info-block .icon {
+            font-size: 50px;
+            color: #3f6b28;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        .info-block .btn {
+            background-color: #3f6b28;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .info-block .btn:hover {
+            background-color: #2d4a1d;
+        }
+
+        .info-img {
+            flex: 1;
+            text-align: left; /* Align image to the left */
+        }
+
+        .info-img img {
+            width: 80%;
+            height: 600px;
+            
+            border-radius: 10px; /* Optional: Add rounded corners */
+        }
+  
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Boutique Section Styles */
+        .nouveaute-section {
+            padding: 30px 20px;
+            background-color: #758467;
+            text-align: center;
+            height: 100%;
+        }
+
+        .nouveaute-section h2 {
+            font-size: 36px;
+            color: #ffffff;
+            margin-bottom: 40px;
+            font-family: 'Playfair Display', serif;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .nouveaute-section .products {
+            display: flex;
+            justify-content: center; /* Center the products horizontally */
+            gap: 20px; /* Add some space between the products */
+            flex-wrap: wrap; /* Allow products to wrap to the next line if they don't fit */
+        }
+
+        .nouveaute-section .product {
+            flex: 1 1 calc(33.333% - 40px); /* Ensure each product takes up equal space, minus the gap */
+            max-width: calc(33.333% - 40px); /* Ensure each product doesn't exceed one-third of the container width */
+            position: relative;
+            transition: transform 0.5s ease, flex 0.5s ease;
+            cursor: pointer;
+        }
+
+        .nouveaute-section .product:hover {
+            flex: 2; /* Expand the hovered product */
+        }
+
+        .nouveaute-section .product img {
+            width: 100%;
+            height: 530px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .nouveaute-section .product:hover img {
+            transform: scale(1.1); /* Zoom in the image */
+        }
+
+        .nouveaute-section .product .product-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(63, 107, 40, 0.8); /* Semi-transparent background */
+            color: #ffffff;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .nouveaute-section .product:hover .product-info {
+            transform: translateY(0); /* Slide up the info on hover */
+        }
+
+        .nouveaute-section .product h3 {
+            font-size: 24px;
+            color: #dcddd3;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .nouveaute-section .product p {
+            font-size: 14px;
+            color: #dcddd3;
+            margin-bottom: 15px;
+        }
+
+        .nouveaute-section .product .price {
+            font-size: 18px;
+            color: #dcddd3;
+            font-weight: bold;
+        }
+
+         /* Rechercher Section Styles */
+         .boutique-section {
+            padding: 100px 20px;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .boutique-section h1 {
+            font-size: 36px;
+            color: #3f6b28;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .boutique-section .categories {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .boutique-section .category {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .boutique-section .category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .boutique-section .category h2 {
+            font-size: 24px;
+            color: #3f6b28;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .boutique-section .category p {
+            font-size: 14px;
+            color: #666;
+        }
+
+
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #ffffff;
+            color: #3f6b28;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        /* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .welcome-section h1 {
+        font-size: 32px;
+        margin-left: 20px;
+    }
+
+    .buy-now-button {
+        margin-left: 20px;
+    }
+
+    .welcome-section .image-container {
+        padding-left: 10%;
+    }
+
+    .info-block {
+        padding: 100px 20px;
+    }
+
+    .info-img img {
+        height: 400px;
+    }
+}
+
+@media (max-width: 992px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header .logo-container {
+        margin-bottom: 10px;
+    }
+
+    header nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .welcome-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .welcome-section .text-container {
+        padding-right: 0;
+    }
+
+    .welcome-section .image-container {
+        padding-left: 0;
+        left: 0;
+        justify-content: center;
+    }
+
+    .info-block {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+    }
+
+    .info-content {
+        padding-right: 0;
+    }
+
+    .info-img img {
+        width: 100%;
+        height: auto;
+    }
+
+    .nouveaute-section .product {
+        flex: 1 1 calc(50% - 40px);
+        max-width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-section h1 {
+        font-size: 28px;
+    }
+
+    .buy-now-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .welcome-section .image-container img {
+        width: 150px;
+        height: 250px;
+    }
+
+    .info-block {
+        padding: 50px 20px;
+    }
+
+    .info-block h2 {
+        font-size: 20px;
+    }
+
+    .info-block span {
+        font-size: 16px;
+    }
+
+    .nouveaute-section .product {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .boutique-section h1 {
+        font-size: 28px;
+    }
+
+    .boutique-section .category {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header nav a {
+        font-size: 14px;
+    }
+
+    .welcome-section h1 {
+        font-size: 24px;
+    }
+
+    .buy-now-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .welcome-section .image-container img {
+        width: 120px;
+        height: 200px;
+    }
+
+    .info-block h2 {
+        font-size: 18px;
+    }
+
+    .info-block span {
+        font-size: 14px;
+    }
+
+    .nouveaute-section h2 {
+        font-size: 28px;
+    }
+
+    .nouveaute-section .product h3 {
+        font-size: 20px;
+    }
+
+    .nouveaute-section .product p {
+        font-size: 12px;
+    }
+
+    .nouveaute-section .product .price {
+        font-size: 16px;
+    }
+
+    .boutique-section h1 {
+        font-size: 24px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+        <div class="logo">
+            <img src="logoardalil.PNG" alt="ArDalil Logo">
+        </div>
+        <div class="slogan">
+            <span>Grow green,</span>
+            <span> live clean</span>
+        </div>
+        </div>
+        <nav>
+            <a href="#accueil">Accueil</a>
+            <a href="#boutique">Boutique</a>
+            <a href="#nouveaute">Nouveauté</a>
+            <a href="rechercher.html">Rechercher</a>
+            <a href="feedback.html">Avis</a>
+        </nav>
+    </header>
+
+    <!-- Welcome Section -->
+    <section id="accueil" class="welcome-section" >
+        <div class="text-container">
+            <h1>
+                <span>La nature à portée de main,</span>
+                <span>la passion en partage !</span>
+            </h1>
+            <a href="#boutique" class="buy-now-button">Achetez vos plantes maintenant</a>
+        </div>
+        <div class="image-container">
+            <img src="c:\Users\user\Desktop\Prototype\pics\Plant3.jfif" alt="Nature Image">
+        </div>
+    </section>
+
+     <!-- Le Saviez-vous Section -->
+    <section class="info-block">
+        <div class="info-img">
+            <img src="decoration/lierre.jfif" alt="Nature Image">
+        </div>
+        <div class="info-content">
+            <div class="icon">🌿</div>
+            <div class="information">
+                <h2>Le saviez-vous ?</h2>
+                <span>Le lierre anglais est une plante grimpante aux feuilles persistantes,</span>
+                <span>souvent cultivée en intérieur pour ses qualités esthétiques et dépolluantes.</span> 
+                <span>Cette plante est efficace pour éliminer des polluants tels que </span>
+                <span>le formaldéhyde et le benzène présents dans l'air intérieur.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Boutique Section -->
+    <section id="nouveaute" class="nouveaute-section">
+        <h2>Nouveauté</h2>
+        <div class="products">
+            <div class="product">
+                <img src="decoration/sansevieria.jfif" alt="Product 1">
+                <h3>Sansevieria </h3>
+                <p>La Nouvelle Star de Votre Déco !</p>
+                <p class="price">170dh</p>
+            </div>
+            <div class="product">
+                <img src="c:\Users\user\Desktop\Prototype\decoration\thuja.jfif" alt="Product 2">
+                <h3>Thuya Orientalis Citronné</h3>
+                <p>Une plante aromatique qui allie </br>beauté et senteur envoûtante !</p>
+                <p class="price">157dh</p>
+            </div>
+            <div class="product">
+                <img src="c:\Users\user\Desktop\Prototype\decoration\peacelily.jfif" alt="Product 3">
+                <h3>Spathiphyllum</h3>
+                <p>Lys de la Paix une plante d'intérieur.</p>
+                <p class="price">120dh</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rechercher Section -->
+    <section id="boutique" class="boutique-section">
+        <h1>Trouvez la plante idéale pour votre espace</h1>
+        <div class="categories">
+            <div class="category" >
+                <h2>Décoration & esthétique</h2>
+                <p>Apportez charme et harmonie à chaque environnement.</p>
+                <a style="text-decoration: none; color: rgb(23, 80, 0); " target="_blank"  href="decoration.html" class="view-more-button">
+                    View More
+                    <i class="fas fa-arrow-right icon"></i>
+                  </a>
+            </div>
+            <div class="category">
+                <h2>Production alimentaire</h2>
+                <p>Cultivez la qualité, savourez l’authenticité.</p>
+                <a style="text-decoration: none; color: rgb(23, 80, 0); " target="_blank"  href="Production_alimentaire.html" class="view-more-button">
+                    View More
+                    <i class="fas fa-arrow-right icon"></i>
+                  </a>
+            </div>
+            <div class="category" background-image="url('c:\Users\user\Desktop\Prototype\production\cover3.jfif')">
+                <h2>Contribution écologique</h2>
+                <p>Agissez pour la planète avec des initiatives durables et responsables.</p>
+                <a style="text-decoration: none; color: rgb(23, 80, 0); " target="_blank"  href="Contribution_ecologique.html" class="view-more-button">
+                    View More
+                    <i class="fas fa-arrow-right icon"></i>
+                  </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ArDalil. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
