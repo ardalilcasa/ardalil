@@ -150,18 +150,103 @@
       font-size: 14px;
     }
     
-    /* Responsive */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 28px;
-      }
-      .card h3 {
-        font-size: 20px;
-      }
-      .card p, .card .price {
-        font-size: 16px;
-      }
-    }
+    /* Media Queries pour la Responsivité */
+@media (max-width: 1200px) {
+  header h1 {
+    font-size: 28px;
+  }
+
+  .card h3 {
+    font-size: 20px;
+  }
+
+  .card p, .card .price {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 992px) {
+  header {
+    padding: 15px;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .card img {
+    height: 180px;
+  }
+
+  .card-content {
+    padding: 10px;
+  }
+
+  .whatsapp-button {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 22px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .card img {
+    height: 150px;
+  }
+
+  .card h3 {
+    font-size: 18px;
+  }
+
+  .card p, .card .price {
+    font-size: 14px;
+  }
+
+  .whatsapp-button {
+    padding: 6px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 20px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .card img {
+    height: 120px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card p, .card .price {
+    font-size: 12px;
+  }
+
+  .whatsapp-button {
+    padding: 5px;
+    font-size: 10px;
+  }
+}
   </style>
 </head>
 <body>
@@ -202,7 +287,7 @@
         <div class="card-content">
           <h3>Lierre Anglais</h3>
           <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
-          <p class="price">25€</p>
+          <p class="price">50 à 220dh</p>
           <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
         </div>
       </div>
@@ -252,7 +337,7 @@
         <div class="card-content">
           <h3>Peperomia obtusifolia</h3>
           <p>Une plante d’intérieur compacte et facile d’entretien.</p>
-          <p class="price">25€</p>
+          <p class="price">56dh</p>
           <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
         </div>
       </div>
@@ -262,37 +347,17 @@
         <div class="card-content">
           <h3>Cactus</h3>
           <p>Une plante succulente appréciée pour sa forme arrondie et sa grande résistance.</p>
-          <p class="price">25€</p>
+          <p class="price">A partir de 200dh</p>
           <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
         </div>
       </div>
 
       <div class="card">
-        <img src="decoration/10.png" alt="Plante Verte">
+        <img src="c:\Users\user\Desktop\Prototype\decoration\peacelily.jfif" alt="Plante Verte">
         <div class="card-content">
-          <h3>Plante Verte</h3>
-          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
-          <p class="price">25€</p>
-          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="decoration/11.png" alt="Plante Verte">
-        <div class="card-content">
-          <h3>Plante Verte</h3>
-          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
-          <p class="price">25€</p>
-          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="decoration/12.png" alt="Plante Verte">
-        <div class="card-content">
-          <h3>Plante Verte</h3>
-          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
-          <p class="price">25€</p>
+          <h3>Spathiphyllum</h3>
+          <p>une plante d'intérieur appréciée pour ses magnifiques fleurs blanches en forme de spathe.</p>
+          <p class="price">120dh</p>
           <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
         </div>
       </div>

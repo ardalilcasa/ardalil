@@ -81,6 +81,7 @@
             flex: 1;
             padding-right: 40px;
             animation: fadeInLeft 1.5s ease-in-out;
+            left:20%;
             
         }
 
@@ -96,7 +97,7 @@
             display: inline-block;
             background-color: #ffffff; /* White background */
             color: #3f6b28; /* Green text color */
-            padding: 15px 30px; /* Padding for button size */
+            padding: 10px 15px; /* Padding for button size */
             font-size: 18px;
             font-weight: bold;
             text-decoration: none;
@@ -383,7 +384,170 @@
             margin: 0;
             font-size: 14px;
         }
-      
+        
+        /* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .welcome-section h1 {
+        font-size: 32px;
+        margin-left: 20px;
+    }
+
+    .buy-now-button {
+        margin-left: 20px;
+    }
+
+    .welcome-section .image-container {
+        padding-left: 10%;
+    }
+
+    .info-block {
+        padding: 100px 20px;
+    }
+
+    .info-img img {
+        height: 400px;
+    }
+}
+
+@media (max-width: 992px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header .logo-container {
+        margin-bottom: 10px;
+    }
+
+    header nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .welcome-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .welcome-section .text-container {
+        padding-right: 0;
+    }
+
+    .welcome-section .image-container {
+        padding-left: 0;
+        left: 0;
+        justify-content: center;
+    }
+
+    .info-block {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+    }
+
+    .info-content {
+        padding-right: 0;
+    }
+
+    .info-img img {
+        width: 100%;
+        height: auto;
+    }
+
+    .nouveaute-section .product {
+        flex: 1 1 calc(50% - 40px);
+        max-width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-section h1 {
+        font-size: 28px;
+    }
+
+    .buy-now-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .welcome-section .image-container img {
+        width: 150px;
+        height: 250px;
+    }
+
+    .info-block {
+        padding: 50px 20px;
+    }
+
+    .info-block h2 {
+        font-size: 20px;
+    }
+
+    .info-block span {
+        font-size: 16px;
+    }
+
+    .nouveaute-section .product {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .boutique-section h1 {
+        font-size: 28px;
+    }
+
+    .boutique-section .category {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header nav a {
+        font-size: 14px;
+    }
+
+    .welcome-section h1 {
+        font-size: 24px;
+    }
+
+    .buy-now-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .welcome-section .image-container img {
+        width: 120px;
+        height: 200px;
+    }
+
+    .info-block h2 {
+        font-size: 18px;
+    }
+
+    .info-block span {
+        font-size: 14px;
+    }
+
+    .nouveaute-section h2 {
+        font-size: 28px;
+    }
+
+    .nouveaute-section .product h3 {
+        font-size: 20px;
+    }
+
+    .nouveaute-section .product p {
+        font-size: 12px;
+    }
+
+    .nouveaute-section .product .price {
+        font-size: 16px;
+    }
+
+    .boutique-section h1 {
+        font-size: 24px;
+    }
+}
     </style>
 </head>
 <body>
@@ -417,7 +581,7 @@
             <a href="#boutique" class="buy-now-button">Achetez vos plantes maintenant</a>
         </div>
         <div class="image-container">
-            <img src="Plant3.jfif" alt="Nature Image">
+            <img src="c:\Users\user\Desktop\Prototype\pics\Plant3.jfif" alt="Nature Image">
         </div>
     </section>
 
@@ -443,22 +607,22 @@
         <h2>Nouveauté</h2>
         <div class="products">
             <div class="product">
-                <img src="decoration/zz.jpg" alt="Product 1">
-                <h3>Plante Verte</h3>
-                <p>Une belle plante pour votre intérieur.</p>
-                <p class="price">25€</p>
+                <img src="decoration/sansevieria.jfif" alt="Product 1">
+                <h3>Sansevieria </h3>
+                <p>La Nouvelle Star de Votre Déco !</p>
+                <p class="price">170dh</p>
             </div>
             <div class="product">
-                <img src="decoration/Orchidea.jfif" alt="Product 2">
-                <h3>Fleurs Printanières</h3>
-                <p>Des fleurs colorées pour votre jardin.</p>
-                <p class="price">15€</p>
+                <img src="c:\Users\user\Desktop\Prototype\decoration\thuja.jfif" alt="Product 2">
+                <h3>Thuya Orientalis Citronné</h3>
+                <p>Une plante aromatique qui allie </br>beauté et senteur envoûtante !</p>
+                <p class="price">157dh</p>
             </div>
             <div class="product">
-                <img src="decoration/sansevieria.jfif" alt="Product 3">
-                <h3>Arbre Fruitier</h3>
-                <p>Un arbre fruitier pour votre verger.</p>
-                <p class="price">50€</p>
+                <img src="c:\Users\user\Desktop\Prototype\decoration\peacelily.jfif" alt="Product 3">
+                <h3>Spathiphyllum</h3>
+                <p>Lys de la Paix une plante d'intérieur.</p>
+                <p class="price">120dh</p>
             </div>
         </div>
     </section>
@@ -483,14 +647,13 @@
                     <i class="fas fa-arrow-right icon"></i>
                   </a>
             </div>
-            <div class="category">
+            <div class="category" background-image="url('c:\Users\user\Desktop\Prototype\production\cover3.jfif')">
                 <h2>Contribution écologique</h2>
                 <p>Agissez pour la planète avec des initiatives durables et responsables.</p>
                 <a style="text-decoration: none; color: rgb(23, 80, 0); " target="_blank"  href="Contribution_ecologique.html" class="view-more-button">
                     View More
                     <i class="fas fa-arrow-right icon"></i>
                   </a>
-
             </div>
         </div>
     </section>

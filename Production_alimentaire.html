@@ -150,18 +150,103 @@
       font-size: 14px;
     }
     
-    /* Responsive */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 28px;
-      }
-      .card h3 {
-        font-size: 20px;
-      }
-      .card p, .card .price {
-        font-size: 16px;
-      }
-    }
+    /* Media Queries pour la Responsivité */
+@media (max-width: 1200px) {
+  header h1 {
+    font-size: 28px;
+  }
+
+  .card h3 {
+    font-size: 20px;
+  }
+
+  .card p, .card .price {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 992px) {
+  header {
+    padding: 15px;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .card img {
+    height: 180px;
+  }
+
+  .card-content {
+    padding: 10px;
+  }
+
+  .whatsapp-button {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 22px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .card img {
+    height: 150px;
+  }
+
+  .card h3 {
+    font-size: 18px;
+  }
+
+  .card p, .card .price {
+    font-size: 14px;
+  }
+
+  .whatsapp-button {
+    padding: 6px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 20px;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .card img {
+    height: 120px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card p, .card .price {
+    font-size: 12px;
+  }
+
+  .whatsapp-button {
+    padding: 5px;
+    font-size: 10px;
+  }
+}
   </style>
 </head>
 <body>
@@ -179,9 +264,9 @@
       <div class="card">
         <img src="production/1.png" alt="Plante Verte">
         <div class="card-content">
-          <h3>Pomme</h3>
-          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
-          <p class="price">25€</p>
+          <h3>Pommier</h3>
+          <p>Un arbre fruitier classique, parfait pour les jardins familiaux !</p>
+          <p class="price">A partir de 50dh</p>
           <a href="https://wa.link/zcb3zj" class="whatsapp-button" target="_blank" onclick="return confirmerCommande(); ">Commander via WhatsApp</a>
         </div>
       </div>
@@ -196,17 +281,7 @@
         <div class="card-content">
           <h3>grenad</h3>
           <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
-          <p class="price">25€</p>
-          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
-        </div>
-      </div>
-      
-      <div class="card">
-        <img src="production/3.png" alt="Plante Verte">
-        <div class="card-content">
-          <h3>amande</h3>
-          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
-          <p class="price">25€</p>
+          <p class="price">A partir de 70dh</p>
           <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
         </div>
       </div>
@@ -214,79 +289,41 @@
       <div class="card">
         <img src="production/4.png" alt="Plante Verte">
         <div class="card-content">
-          <h3>Prune</h3>
-          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
-          <p class="price">25€</p>
+          <h3>Prunier</h3>
+          <p>Arbre de prunes à goût sucré pour l'utilisation en cuisine, en pâtisserie ou en conserve.</p>
+          <p class="price">A partir de 149dh</p>
           <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
         </div>
       </div>
 
-      <div class="card">
-        <img src="production/5.png" alt="Plante Verte">
-        <div class="card-content">
-          <h3>cerise</h3>
-          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
-          <p class="price">25€</p>
-          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="production/6.png" alt="Plante Verte">
-        <div class="card-content">
-          <h3>poire Comice</h3>
-          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
-          <p class="price">25€</p>
-          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="production/7.png" alt="Plante Verte">
-        <div class="card-content">
-          <h3>Plante Verte</h3>
-          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
-          <p class="price">25€</p>
-          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
-        </div>
-      </div>
 
       <div class="card">
         <img src="production/8.png" alt="Plante Verte">
         <div class="card-content">
-          <h3>Plante Verte</h3>
-          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
-          <p class="price">25€</p>
+          <h3>Citronnier</h3>
+          <p>Un arbre fruitier, apprécié pour ses citrons acidulés et parfumés.</p>
+          <p class="price">A partir de 35dh</p>
           <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
         </div>
       </div>
 
       <div class="card">
-        <img src="production/9.png" alt="Plante Verte">
+        <img src="c:\Users\user\Desktop\Prototype\production\avocat.jfif" alt="Plante Verte">
         <div class="card-content">
-          <h3>Plante Verte</h3>
-          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
-          <p class="price">25€</p>
+          <h3>Avocatier</h3>
+          <p>Un arbre fruitier exotique. Avocats riches et crémeux pour les amateurs de cuisine healthy</p>
+          <p class="price">A partir de 80dh</p>
           <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
         </div>
       </div>
 
-      <div class="card">
-        <img src="production/10.png" alt="Plante Verte">
-        <div class="card-content">
-          <h3>Plante Verte</h3>
-          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
-          <p class="price">25€</p>
-          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
-        </div>
-      </div>
 
       <div class="card">
         <img src="production/11.png" alt="Plante Verte">
         <div class="card-content">
-          <h3>Plante Verte</h3>
-          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
-          <p class="price">25€</p>
+          <h3>Oranger</h3>
+          <p>Un arbre fruitier emblématique, apprécié pour ses délicieuses oranges juteuses et sucrées.</p>
+          <p class="price">A partir de 39dh</p>
           <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
         </div>
       </div>
@@ -294,9 +331,19 @@
       <div class="card">
         <img src="production/12.png" alt="Plante Verte">
         <div class="card-content">
-          <h3>Plante Verte</h3>
-          <p>Une belle plante pour décorer votre intérieur et apporter une touche de fraîcheur.</p>
-          <p class="price">25€</p>
+          <h3>Pêcher</h3>
+          <p>Une touche estivale pour votre jardin.</p>
+          <p class="price">A partir de 149dh </p>
+          <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="c:\Users\user\Desktop\Prototype\production\romarin.jfif" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Romarin</h3>
+          <p>une plante aromatique polyvalente, connue pour son parfum intense et ses nombreuses utilisations culinaires et médicinales.</p>
+          <p class="price">36dh</p>
           <a href="https://wa.me/0719462752?text=Je%20souhaite%20commander%20la%20Plante%20Verte" class="whatsapp-button" target="_blank">Commander via WhatsApp</a>
         </div>
       </div>
