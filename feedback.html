@@ -150,6 +150,20 @@
             margin: 0;
             font-size: 14px;
         }
+
+        .success-message {
+    color: green;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+
+  }
+
     </style>
 </head>
 <body>
@@ -176,6 +190,7 @@
     <!-- Feedback Section -->
     <section class="feedback-section">
         <h2>Votre Avis Nous Intéresse</h2>
+        <div id="formOutput"></div>
         <form class="feedback-form" action="https://formspree.io/f/mwpvzyop" method="POST">
             <div class="form-group">
                 <label for="name">Nom :</label>
@@ -204,19 +219,37 @@
 
 
     <script>
-        document.querySelector('.feedback-form').addEventListener('submit', function (e) {
-            e.preventDefault(); // Empêche le rechargement de la page
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-    
-            // Afficher un message de confirmation
-            alert(`Merci, ${name} ! Votre message a été envoyé.`);
-            
-            // Réinitialiser le formulaire
-            document.querySelector('.feedback-form').reset();
-        });
+      const form = document.querySelector('.feedback-form');
+const formOutput = document.getElementById('formOutput');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const formData = new FormData(form);
+  const jsonData = Object.fromEntries(formData.entries()); // Convertir FormData en objet JSON
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(jsonData),
+    });
+
+    if (response.ok) {
+      formOutput.innerHTML = `<p class="success-message">Form submitted successfully!</p>`;
+      form.reset(); 
+    } else {
+      formOutput.innerHTML = `<p class="error-message">An error occurred. Please try again.</p>`;
+    }
+  } catch (error) {
+    console.error("Fetch error:", error); // Debugging
+    formOutput.innerHTML = `<p class="error-message">Error: ${error.message}</p>`;
+  }
+});
+
+
 
         
     </script>
