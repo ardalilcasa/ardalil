@@ -164,6 +164,52 @@
 
   }
 
+        /* Media Queries pour les appareils mobiles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            header .logo-container {
+                margin-bottom: 10px;
+            }
+
+            header nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .feedback-section h2 {
+                font-size: 28px; /* Taille de police réduite pour les petits écrans */
+            }
+
+            .feedback-form {
+                padding: 0 10px; /* Ajout de padding pour éviter que le formulaire ne touche les bords */
+            }
+
+            .form-group input,
+            .form-group textarea {
+                font-size: 14px; /* Taille de police réduite pour les petits écrans */
+            }
+
+            .feedback-form button {
+                width: 100%; /* Bouton plein largeur sur mobile */
+            }
+        }
+
+        /* Media Queries pour les tablettes */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .feedback-section h2 {
+                font-size: 32px; /* Taille de police ajustée pour les tablettes */
+            }
+
+            .feedback-form {
+                max-width: 80%; /* Largeur du formulaire ajustée pour les tablettes */
+            }
+        }
+
     </style>
 </head>
 <body>
