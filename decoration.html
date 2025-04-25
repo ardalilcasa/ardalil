@@ -1,595 +1,419 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rechercher - ArDalil</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: 'Georgia', serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff;
-            color: #3f6b28;
-            line-height: 1.6;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArDalil - decoration</title>
+  <meta name="description" content="Découvrez notre catalogue de plantes sur ArDalil. Commandez vos plantes préférées directement via WhatsApp.">
+  <style>
+    /* Réinitialisation de quelques styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Georgia', serif;
+      
+      background-color: rgb(255, 255, 255);
+      color: #3f6b28;
+      line-height: 1.6;
+      padding: 20px;
+      
+    }
+    
+    /* Header */
+    header {
+      background-color: #ffffff;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      margin-bottom: 50px;
+      margin-top: -20px;
+      margin-left: -2%;
+      margin-right: -2%;
+      transition: background-color 0.3s, padding 0.3s;
+    }
+    
+    /* Header fixe après scroll */
+    header.fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #758467; /* Nouvelle couleur de fond */
+      padding: 10px 20px;       /* Padding réduit */
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      margin: 0;
 
-        /* Header Styles */
-        header {
-            background-color: #ffffff;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #3f6b28;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 10;
-        }
+      z-index: 1000;
+    }
+    
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: #3f6b28;
+      text-align: center;
+      transition: color 1s;
+    }
+    
+    /* Changement de couleur du texte du header une fois fixe */
+    header.fixed h1 {
+      color: #ffffff;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: auto;
 
-        header .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    }
+    
+    /* Grille des produits */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    
+    /* Carte Produit */
+    .card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    }
+    
+    .card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+    
+    .card-content {
+      padding: 15px;
+      flex-grow: 1;
+    }
+    
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #3f6b28;
+    }
+    
+    .card p {
+      margin-bottom: 10px;
+      color: #666;
+    }
+    
+    .card .price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #3f6b28;
+      margin-bottom: 15px;
+    }
+    
+    .whatsapp-button {
+      background-color: #3f6b28;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 25px;
+      text-align: center;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    
+    .whatsapp-button:hover {
+      background-color: #2d4a1d;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+      margin-top: 40px;
+    }
+    
+    footer p {
+      font-size: 14px;
+    }
+    
+    /* Media Queries pour la Responsivité */
+@media (max-width: 1200px) {
+  header h1 {
+    font-size: 28px;
+  }
 
-        header .logo img {
-            height: 60px;
-            width: 95px;
-        }
+  .card h3 {
+    font-size: 20px;
+  }
 
-        header .slogan {
-            font-style: italic;
-            font-size: 18px;
-            color: #3f6b28;
-            text-align: right;
-            line-height: 1.2;
-        }
+  .card p, .card .price {
+    font-size: 16px;
+  }
+}
 
-        header .slogan span {
-            display: block;
-        }
+@media (max-width: 992px) {
+  header {
+    padding: 15px;
+  }
 
-        header nav {
-            display: flex;
-            gap: 20px;
-        }
+  header h1 {
+    font-size: 24px;
+  }
 
-        header nav a {
-            color: #3f6b28;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
 
-        header nav a:hover {
-            color: #0e1809;
-        }
+  .card img {
+    height: 180px;
+  }
 
-        /* Styles pour la Barre de Recherche */
-        .search-bar {
-            max-width: 800px;
-            margin: 0 auto 40px;
-            padding: 20px;
-            text-align: center;
-        }
+  .card-content {
+    padding: 10px;
+  }
 
-        .search-bar form {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
+  .whatsapp-button {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
 
-        .search-bar input[type="text"] {
-            width: 70%;
-            padding: 10px;
-            font-size: 16px;
-            border: 2px solid #3f6b28;
-            border-radius: 5px;
-            outline: none;
-        }
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 22px;
+  }
 
-        .search-bar button {
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #3f6b28;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
 
-        .search-bar button:hover {
-            background-color: #2d4a1d;
-        }
+  .card img {
+    height: 150px;
+  }
 
-        /* Plant Details Section Styles */
-        .plant-details-section {
-            padding: 80px 20px;
-            background-color: #ffffff;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+  .card h3 {
+    font-size: 18px;
+  }
 
-        .plant-details-section h1 {
-            font-size: 36px;
-            color: #3f6b28;
-            margin-bottom: 40px;
-            font-family: 'Playfair Display', serif;
-            text-align: center;
-        }
+  .card p, .card .price {
+    font-size: 14px;
+  }
 
-        .plant-details-section .plant-info {
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
+  .whatsapp-button {
+    padding: 6px;
+    font-size: 12px;
+  }
+}
 
-        }
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 20px;
+  }
 
-        .plant-details-section .plant-info img {
-            width: 300px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
 
-        .plant-details-section .plant-info .details {
-            flex: 1;
-            color: #666;
-        }
+  .card img {
+    height: 200px;
+  }
 
-        .plant-details-section .plant-info h2 {
-            font-size: 24px;
-            color: #3f6b28;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-        }
+  .card h3 {
+    font-size: 16px;
+  }
 
-        .plant-details-section .plant-info p {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
+  .card p, .card .price {
+    font-size: 12px;
+  }
 
-        .plant-details-section .plant-info ul {
-            list-style-type: disc;
-            margin-left: 20px;
-            font-size: 16px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: #ffffff;
-            color: #3f6b28;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-        }
-
-        footer p {
-            margin: 0;
-            font-size: 14px;
-        }
-    </style>
+  .whatsapp-button {
+    padding: 5px;
+    font-size: 10px;
+  }
+}
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="logo-container">
-            <div class="logo">
-                <img src="logoardalil.PNG" alt="ArDalil Logo">
-            </div>
-            <div class="slogan">
-                <span>Grow green,</span>
-                <span> live clean</span>
-            </div>
-        </div>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="index.html">Boutique</a>
-            <a href="index.html">Nouveauté</a>
-            <a href="rechercher.html">Rechercher</a>
-            <a href="feedback.html">Avis</a>
-        </nav>
-    </header>
-    <main>
-    <!----------------- Barre de Recherche------------- -->
-    <div class="search-bar">
-        <form action="#" method="get">
-            <input type="text" name="search" placeholder="Rechercher une plante..." required>
-            <button type="submit">Rechercher</button>
-        </form>
+  <!-- En-tête -->
+  <header id="header">
+    <div class="container">
+      <h1>Décoration & esthétique - ArDalil</h1>
     </div>
-    <!----------Script------------->
-    <script>
-        document.querySelector('.search-bar form').addEventListener('submit', function (e) {
-            e.preventDefault(); // Empêche le rechargement de la page
-            const searchTerm = document.querySelector('.search-bar input[type="text"]').value.toLowerCase();
-            const plants = document.querySelectorAll('.plant-info');
-    
-            plants.forEach(plant => {
-                const plantName = plant.querySelector('h2').textContent.toLowerCase();
-                if (plantName.includes(searchTerm)) {
-                    plant.style.display = 'flex'; // Affiche la plante correspondante
-                } else {
-                    plant.style.display = 'none'; // Masque les autres plantes
-                }
-            });
-        });
-    </script>
-    <!-- Plant Details Section -->
-    <section class="plant-details-section">
-        <h1>Détails de la Plante</h1>
-        <div class="plant-info">
-            <img src="decoration\aglaonema.jfif" alt="Plant Image">
-            <div class="details">
-                <h2>Aglaonema</h2>
-                <p>
-                    L’Aglaonema, surnommée <I>plante du bonheur</I>, est une plante tropicale au feuillage luxuriant, souvent tacheté de vert, d’argenté ou même de rouge.
-                </p>
-                <h2>Caractéristiques principales</h2>
-                <li><B>Origine :</B> Forêts tropicales d’Asie du Sud-Est.</li>
-                <li><B>Feuillage: </B>Persistant, panaché (vert, argenté, parfois rouge ou rose selon la variété).</li>
-                <li><B>Hauteur : </B>Environ 30 cm à 1 m selon la variété</li>
-                <h2>Traitement</h2>
-                    <li><B>Arrosage modéré :</B> laisse sécher le sol antre deux arrosages/li>
-                    <li><B>Lumière : </B> indirecte ou mi-ombre (éviter le soleil direct qui brûle les feuilles)</li>
-                    <li><B>Température : </B>Idéale entre 18°C et 25°C ( éviter les courants d'air et le froid)</li>
-                <h2>Cycle de Vie</h2>
-                <li>Jeune plante : pousse à partir de graines, boutures ou rejets.</li>
-                <li>Croissance : développe progressivement de nouvelles feuilles.</li>
-                <li>Floraison (rare en intérieur) : produit une petite fleur blanche.</li>
-                <li>Maturité : vit plusieurs années en renouvelant son feuillage.</li>
-                <li>Multiplication : se divise naturellement en formant de nouveaux rejets.</li>
-                <h2>Conseils de Culture</h2>
-                <ul>
-                    <li>Plante dépolluante, capable d’absorber certaines toxines présentes dans l’air.</li>
-                    <li>Très résistante, idéale pour les débutants.</li>
-                    <li>Apporte une touche exotique et élégante à la décoration intérieure</li>
-                </ul>
-            </div>
+  </header>
+  <script>
+  function confirmerCommande() {
+    return confirm("Vous allez être redirigé vers WhatsApp pour envoyer votre commande. Voulez-vous continuer ?");
+  }
+  </script>
+  <!-- Contenu principal -->
+  <div class="container">
+    <section class="products-grid">
+      <!-- Carte Produit Exemple -->
+      <div class="card">
+        <img src="c:\Users\user\Desktop\PlantConnect\Prototype\decoration\croton candiien.jpg" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Croton Canadien</h3>
+          <p>Une plante d’intérieur exotique prisée pour son feuillage luxuriant.</p>
+          <p class="price">470dh</p>
+          <a href="https://wa.link/zcb3zj" class="whatsapp-button" target="_blank" onclick="return confirmerCommande(); ">Commander via WhatsApp</a>
         </div>
-        <div class="plant-info">
-            <img src="decoration\chlorophytum.jfif" alt="Plant Image">
-            <div class="details">
-                <h2>Chlorophytum</h2>
-                <p>
-                    Le Chlorophytum aussi nommé <I>plante araignée</I>, est une plante d’intérieur très populaire pour son feuillage élégant et sa grande facilité d’entretien.
-                </p>
-                <h2>Caractéristiques principales</h2>
-                <li><B>Origine :</B> Afrique du Sud</li>
-                <li><B>Feuillage: </B>Longues feuilles vertes, parfois panachées de blanc.</li>
-                <li><B>Hauteur : </B>20 à 50 cm.</li>
-                <h2>Traitement</h2>
-                    <li><B>Arrosage modéré :</B> Modéré, 1 à 2 fois par semaine en été, moins en hiver.</li>
-                    <li><B>Lumière : </B> Aime la lumière vive mais tolère l’ombre.</li>
-                    <li><B>Température : </B>Préfère 15-25°C, évite le froid extrême.</li>
-                <h2>Cycle de Vie</h2>
-                <li>Jeune plante : Se développe à partir de graines ou boutures.</li>
-                <li>Croissance : Feuillage s’étoffe rapidement.</li>
-                <li>Floraison : Petites fleurs blanches sur tiges longues.</li>
-                <li>Maturité : Produit des stolons avec de nouvelles pousses (bébés plantes).</li>
-                <li>Multiplication : Les rejets peuvent être replantés facilement.</li>
-                <h2>Conseils de Culture</h2>
-                <ul>
-                    <li>Plante dépolluante, absorbe les toxines de l’air comme le monoxyde de carbone et le formaldéhyde.</li>
-                    <li>Non toxique, sans danger pour les animaux et les enfants.</li>
-                    <li>Résiste bien aux oublis d’arrosage  et s’adapte à différents environnements.</li>
-                    </li>
-                </ul>
-            </div>
+      </div>
+      
+      <!-- Répétez les cartes produits selon vos besoins -->
+      <div class="card">
+        <img src="decoration\20250422_160713.jpg" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Chlorophytum</h3>
+          <p>Une plante suspendue gracieuse aux longues feuilles arquées, souvent panachées.</p>
+          <p class="price">49dh</p>
+          <a href="https://wa.link/zcb3zj" class="whatsapp-button" target="_blank" onclick="return confirmerCommande(); ">Commander via WhatsApp</a>
         </div>
-        <div class="plant-info">
-            <img src="decoration\monstera.jfif" alt="Plant Image">
-            <div class="details">
-                <h2>Monstera</h2>
-                <p>
-                    Le Monstera aussi nommé <I>plante aux trous</I>,une plante tropicale prisée pour son feuillage spectaculaire et sa facilité d’entretien. Elle s’adapte parfaitement à la culture en intérieur et apporte une touche exotique et élégante à tout espace.
-                </p>
-                <h2>Caractéristiques principales</h2>
-                <li><B>Origine :</B> Forêts tropicales humides d’Amérique centrale.</li>
-                <li><B>Feuillage: </B>Grandes feuilles vertes perforées qui s’agrandissent avec l’âge.</li>
-                <li><B>Hauteur : </B>1 à 3 mètres.</li>
-                <h2>Traitement</h2>
-                    <li><B>Arrosage : </B> 1 à 2 fois par semaine, laisser sécher la terre entre deux arrosages.</li>
-                    <li><B>Lumière : </B> Préfère une lumière vive indirecte, tolère la mi-ombre.</li>
-                    <li><B>Température : </B>Préfère 15-25°C, évite le froid extrême.</li>
-                <h2>Cycle de Vie</h2>
-                <li>Jeune plante : Se développe à partir de graines ou boutures.</li>
-                <li>Croissance : Développement rapide du feuillage, avec des feuilles de plus en plus grandes et perforées avec l’âge..</li>
-                <li>Floraison : En milieu naturel, il produit une inflorescence blanche en forme de spathe.</li>
-                <li>Maturité : Croissance continue avec l’émission de nouvelles feuilles régulièrement.</li>
-                <li>Multiplication : Se multiplie naturellement par bouturage ou division des tiges..</li>
-                <h2>Conseils de Culture</h2>
-                <ul>
-                    <li>Apporte une touche exotique et élégante à la décoration.</li>
-                    <li>Essuyer les feuilles avec un chiffon humide pour enlever la poussière et favoriser la photosynthèse.</li>
-                    <li>Peut développer des racines aériennes, qui peuvent être dirigées vers le sol ou coupées si elles deviennent envahissantes.</li>
-                    </li>
-                </ul>
-            </div>
+      </div>
+
+      <div class="card">
+        <img src="decoration/sansevieria (1).jpg" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Sanseviera</h3>
+          <p>Une plante robuste qui purifie l'air..</p>
+          <p class="price">A partir de 70dh</p>
+          <a href="https://wa.link/zcb3zj" class="whatsapp-button" target="_blank" onclick="return confirmerCommande(); ">Commander via WhatsApp</a>
         </div>
-        <div class="plant-info">
-            <img src="decoration\sansevieria.jfif" alt="Plant Image">
-            <div class="details">
-                <h2>Sansevieria</h2>
-                <p>
-                    La Sansevieria aussi nommé <I>langue de belle-mère ou Snake plant,</I>,est une plante d’intérieur ultra résistante, parfaite pour ceux qui oublient souvent d’arroser !
-                </p>
-                <h2>Caractéristiques principales</h2>
-                <li><B>Origine :</B> Afrique et Asie</li>
-                <li><B>Feuillage: </B>Longues feuilles rigides en forme d’épée, vertes avec des motifs jaunes ou argentés.</li>
-                <li><B>Hauteur : </B>30 cm à plus d’1 m selon les variétés.</li>
-                <h2>Traitement</h2>
-                    <li><B>Arrosage : </B> Très faible, toutes les 2 à 3 semaines en été, 1 fois par mois en hivers.</li>
-                    <li><B>Lumière : </B> Supporte toutes les expositions, mais préfère une lumière indirecte vive.</li>
-                    <li><B>Température : </B>Résiste à la chaleur et aux environnements secs, mais évite les températures sous 10°C.</li>
-                <h2>Cycle de Vie</h2>
-                <li>Jeune plante : Les premières feuilles poussent droites et épaisses..</li>
-                <li>Croissance : Développement progressif du feuillage, avec des motifs qui varient selon la variété.</li>
-                <li>Floraison : Produit de petites fleurs blanches parfumées, mais uniquement en conditions optimales.</li>
-                <li>Maturité : Peut vivre plusieurs décennies avec un entretien minimal..</li>
-                <li>Multiplication : Se propage naturellement par rejets ou boutures de feuilles.</li>
-                <h2>Conseils de Culture</h2>
-                <ul>
-                    <li>Plante ultra résistante, idéale pour débutants.</li>
-                    <li>Apporte une touche graphique à tout intérieur.</li>
-                    <li>Idéale pour les petits espaces.</li>
-                    </li>
-                </ul>
-            </div>
+      </div>
+
+      <div class="card">
+        <img src="decoration\sansevieria tressé.jpg" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Sansevieria tressé</h3>
+          <p>Une plante d’intérieur très résistante et esthétique.</p>
+          <p class="price">65dh</p>
+          <a href="https://wa.link/zcb3zj" class="whatsapp-button" target="_blank" onclick="return confirmerCommande(); ">Commander via WhatsApp</a>
         </div>
-        <div class="plant-info">
-            <img src="decoration\zz.jpg" alt="Plant Image">
-            <div class="details">
-                <h2>Zamioculcas zamiifolia</h2>
-                <p>
-                    Le Zamioculcas zamiifolia <I>plante ZZ,</I>,une plante d’intérieur très résistante et esthétique. Avec son feuillage vert foncé brillant et sa croissance lente, elle s’adapte parfaitement aux intérieurs modernes et minimalistes.
-                </p>
-                <h2>Caractéristiques principales</h2>
-                <li><B>Origine :</B>  Afrique de l’Est</li>
-                <li><B>Feuillage: </B>Épais, lustré, en forme de plumes.</li>
-                <li><B>Hauteur : </B>50 cm à 1 m.</li>
-                <h2>Traitement</h2>
-                    <li><B>Arrosage : </B> Très peu fréquent (1 à 2 fois par mois), laisse bien sécher la terre entre deux arrosages.</li>
-                    <li><B>Lumière : </B> Préfère une lumière indirecte, mais tolère l’ombre.</li>
-                    <li><B>Température : </B>Préfère entre 15 et 30°C, évite le froid en dessous de 10°.</li>
-                <h2>Cycle de Vie</h2>
-                <li>Jeune plante : Développement à partir de rhizomes souterrains.</li>
-                <li>Croissance : Nouvelles tiges se développent progressivement.</li>
-                <li>Floraison :Fleurs en forme d’épis blanc-crème à la base de la plante.</li>
-                <li>Maturité : Peut atteindre 1 m avec un feuillage luxuriant.</li>
-                <li>Multiplication : Se propage par division des rhizomes ou boutures de feuilles.</li>
-                <h2>Conseils de Culture</h2>
-                <ul>
-                    <li>Plante vivace, qui peut vivre de nombreuses années.</li>
-                    <li>Idéale pour petits espaces et bureaux</li>
-                    <li>Supporte la faible luminosité et les environnements secs.</li>
-                    </li>
-                </ul>
-            </div>
+      </div>
+
+      <div class="card">
+        <img src="decoration/monstera.jfif" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Monstera</h3>
+          <p>Une plante d’intérieur iconique grâce à ses grandes feuilles découpées et son allure exotique.</p>
+          <p class="price">A partir de 250dh</p>
+          <a href="https://wa.link/zcb3zj" class="whatsapp-button" target="_blank" onclick="return confirmerCommande(); ">Commander via WhatsApp</a>
         </div>
-        <div class="plant-info">
-            <img src="production\romarin.jfif" alt="Plant Image">
-            <div class="details">
-                <h2>Rosmarinus officinalis</h2>
-                <p>
-                    Le Rosmarinus officinalis <I>Romarin,</I>est une plante aromatique bien connue pour ses propriétés culinaires et médicinales.
-                </p>
-                <h2>Caractéristiques principales</h2>
-                <li><B>Origine :</B> Méditerranée</li>
-                <li><B>Feuillage: </B>Feuilles étroites, coriaces, de couleur vert foncé, dégagent un parfum agréable.</li>
-                <li><B>Hauteur : </B>Peut atteindre 1 à 1,5 mètre en hauteur.</li>
-                <h2>Traitement</h2>
-                    <li><B>Arrosage : </B> Laisser sécher le sol entre les arrosages, surtout en hiver. Arrosage modéré en été.</li>
-                    <li><B>Lumière : </B> Préfère un emplacement en plein soleil.</li>
-                    <li><B>Température : </B>Résistant à des températures modérées mais ne supporte pas le gel prolongé.</li>
-                <h2>Cycle de Vie</h2>
-                <li>Jeune plante : Peut être multiplié par graines ou boutures.</li>
-                <li>Croissance : Croissance lente, mais il devient rapidement un buisson dense.</li>
-                <li>Floraison :Fleurs en forme d’épis blanc-crème à la base de la plante.</li>
-                <li>Maturité : Plante vivace qui peut vivre plusieurs années si elle est bien entretenue.</li>
-                <li>Multiplication : Peut être multiplié par bouturage ou division des touffes pour un renouvellement facile.</li>
-                <h2>Conseils de Culture</h2>
-                <ul>
-                    <li>Idéale pour parfumer viandes, poissons, soupes et sauces.</li>
-                    <li>Résistant à la chaleur et à la sécheresse.</li>
-                    <li>Réduit les toxines de l’air ambiant.</li>
-                    </li>
-                </ul>
-            </div>
+      </div>
+
+      <div class="card">
+        <img src="decoration/chamaedorea.jfif" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Chamaedorea</h3>
+          <p>Un palmier élégant et facile d’entretien, parfait pour un intérieur apaisant et verdoyant !</p>
+          <p class="price">95dh</p>
+          <a href="https://wa.link/zcb3zj" class="whatsapp-button" target="_blank" onclick="return confirmerCommande(); ">Commander via WhatsApp</a>
         </div>
-        <div class="plant-info">
-            <img src="decoration\chamaedorea.jfif" alt="Plant Image">
-            <div class="details">
-                <h2>Chamaedorea</h2>
-                <p>
-                    Le Chamaedorea <I> Palmier bambou ou Palmier de salon,</I>est une plante d'intérieur tropicale prisée pour son feuillage léger et élégant.
-                </p>
-                <h2>Caractéristiques principales</h2>
-                <li><B>Origine :</B> Forêts tropicales d'Amérique centrale et du Sud</li>
-                <li><B>Feuillage: </B>Feuilles fines et plumeuses, vertes, ressemblant à des plumes de palmier</li>
-                <li><B>Hauteur : </B>Peut atteindre 1 à 1,5 mètre en hauteur.</li>
-                <h2>Traitement</h2>
-                    <li><B>Arrosage : </B> Arrosage modéré, une fois par semaine en été, espacé en hiver, toujours laisser sécher la terre entre deux arrosages.</li>
-                    <li><B>Lumière : </B> Préfère une lumière indirecte mais tolère bien l'ombre partielle.</li>
-                    <li><B>Température : </B>Supporte des températures entre 15 et 25°C, évite les courants d'air froids.</li>
-                <h2>Cycle de Vie</h2>
-                <li>Jeune plante : Se développe à partir de graines ou de rejets provenant de la base de la plante.</li>
-                <li>Croissance : Moyenne, atteint généralement 1 à 2 mètres de hauteur en intérieur.</li>
-                <li>Floraison :Petites fleurs jaunes ou orangées, rarement visibles en intérieur.</li>
-                <li>Maturité : Plante vivace qui continue de croître lentement et de produire de nouvelles feuilles pendant de nombreuses années.</li>
-                <li>Multiplication : Peut être multiplié par bouturage ou division des touffes pour un renouvellement facile.</li>
-                <h2>Conseils de Culture</h2>
-                <ul>
-                    <li>Éviter l'accumulation d'eau dans le pot, cela peut provoquer la pourriture des racines.</li>
-                    <li>Feuillage léger qui ajoute une touche de verdure tropicale à tout intérieur</li>
-                    <li> S'adapte bien à la culture en pot et ne nécessite pas beaucoup d'espace.</li>
-                    </li>
-                </ul>
-            </div>
+      </div>
+
+      <div class="card">
+        <img src="decoration\peperomia.jpg" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Peperomia obtusifolia</h3>
+          <p>Une plante d’intérieur compacte et facile d’entretien.</p>
+          <p class="price">26dh</p>
+          <a href="https://wa.link/zcb3zj" class="whatsapp-button" target="_blank" onclick="return confirmerCommande(); ">Commander via WhatsApp</a>
         </div>
-        <div class="plant-info">
-            <img src="decoration\cactus.jfif" alt="Plant Image">
-            <div class="details">
-                <h2>Cactus Cercle</h2>
-                <p>
-                    Le Cactus Cercle <I> actus boule ou cactus globulaire,</I>est une plante succulente appréciée pour sa forme arrondie et sa grande résistance. Il est idéal pour les amateurs de plantes qui recherchent une option décorative nécessitant peu d'entretien.
-                </p>
-                <h2>Caractéristiques principales</h2>
-                <li><B>Origine :</B> Déserts d’Amérique centrale et du Sud</li>
-                <li><B>Feuillage: </B>Petites fleurs colorées en couronne sur le sommet du cactus (rouges, jaunes, roses)</li>
-                <li><B>Hauteur : </B>20 à 50 cm de diamètre selon l’espèce.</li>
-                <h2>Traitement</h2>
-                    <li><B>Arrosage : </B>Très faible, une fois toutes les 2-3 semaines en été, quasi nul en hiver.</li>
-                    <li><B>Lumière : </B> Préfère une exposition en plein soleil ou très lumineuse.</li>
-                    <li><B>Température : </B>Tolère bien la chaleur, éviter les températures sous 5°C.</li>
-                <h2>Cycle de Vie</h2>
-                <li>Jeune plante : SPetites pousses arrondies apparaissent au bout de quelques mois.</li>
-                <li>Croissance : Le cactus prend sa forme arrondie et développe ses épines. Stocke de l’eau dans ses tissus pour survivre aux périodes sèches.</li>
-                <li>Floraison :La floraison dépend de l’âge et des conditions de culture.</li>
-                <li>Maturité : Plante vivace qui continue de croître lentement et de produire de nouvelles feuilles pendant de nombreuses années.</li>
-                <li>Multiplication : Certains cactus globulaires produisent des rejets qui permettent leur multiplication.</li>
-                <h2>Conseils de Culture</h2>
-                <ul>
-                    <li>Peut vivre plusieurs décennies avec un bon entretien.</li>
-                    <li>Manipuler avec précaution : Épines parfois très piquantes.</li>
-                    <li>Idéal pour les intérieurs modernes et minimalistes.</li>
-                    </li>
-                </ul>
-            </div>
+      </div>
+
+      <div class="card">
+        <img src="decoration\Cactus.jpg" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Cactus</h3>
+          <p>Une plante succulente appréciée pour sa forme arrondie et sa grande résistance.</p>
+          <p class="price">35dh</p>
+          <a href="https://wa.link/zcb3zj" class="whatsapp-button" target="_blank" onclick="return confirmerCommande(); ">Commander via WhatsApp</a>
         </div>
-        <div class="plant-info">
-            <img src="c:\Users\user\Desktop\Prototype\Contribution_ecologique\thuya.jfif" alt="Plant Image">
-            <div class="details">
-                <h2>Thuya orientalis</h2>
-                <p>
-                    Le Thuya orientalis<I> (Platycladus orientalis) Cèdre de Chine</I>un conifère persistant souvent utilisé pour les haies, les jardins et l’aménagement paysager.
-                </p>
-                <h2>Caractéristiques principales</h2>
-                <li><B>Origine :</B> Asie (Chine, Corée, Mongolie)</li>
-                <li><B>Feuillage: </B>Petites feuilles en écailles, vert vif devenant légèrement bronze en hiver</li>
-                <li><B>Hauteur : </B>Peut atteindre 5 à 10 m.</li>
-                <h2>Traitement</h2>
-                    <li><B>Arrosage : </B>Modéré, plus fréquent en période de sécheresse.</li>
-                    <li><B>Lumière : </B> Soleil ou mi-ombre.</li>
-                    <li><B>Température : </B> Optimale de 10°C à 25°C mais peut supporter jusqu’à 40°C s’il est bien arrosé.</li>
-                <h2>Cycle de Vie</h2>
-                <li>Jeune plante :  La première année, le Thuya développe ses racines.</li>
-                <li>Croissance :  Moyenne à lente, idéale pour les haies.</li>
-                <li>Floraison : Petits cônes ovales verts devenant bruns à maturité.</li>
-                <li>Maturité : Il atteint sa taille adulte et continue à se densifier.</li>
-                <li>Multiplication : Se propage par bouturage ou par semis.</li>
-                <h2>Conseils de Culture</h2>
-                <ul>
-                    <li>Pour une haie dense, plantez vos Thujas à 50 cm d’intervalle et taillez-les légèrement chaque année !</li>
-                    <li>Son feuillage reste vert toute l’année.</li>
-                    <li>Forme une barrière dense et coupe-vents.</li>
-                    </li>
-                </ul>
-            </div>
+      </div>
+
+      <div class="card">
+        <img src="decoration\variegatum spirale.jpg" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Variegatum spirale</h3>
+          <p>une plante d'intérieur appréciée pour ses magnifiques fleurs blanches en forme de spathe.</p>
+          <p class="price">120dh</p>
+          <a href="https://wa.link/zcb3zj" class="whatsapp-button" target="_blank" onclick="return confirmerCommande(); ">Commander via WhatsApp</a>
         </div>
-        <div class="plant-info">
-            <img src="c:\Users\user\Desktop\Prototype\Contribution_ecologique\4.png" alt="Plant Image">
-            <div class="details">
-                <h2>Hedera helix</h2>
-                <p>
-                    Le Hedera helix<I> lierre anglais</I>une plante grimpante persistante qui peut être utilisée pour couvrir les murs, les clôtures ou les sols.
-                </p>
-                <h2>Caractéristiques principales</h2>
-                <li><B>Origine :</B> Europe, Asie et Ouest</li>
-                <li><B>Feuillage: </B>Feuilles coriaces, brillantes, vert foncé, souvent lobées</li>
-                <li><B>Hauteur : </B>Peut atteindre jusqu'à 30 mètres de long lorsqu'elle grimpe ou se répand sur le sol.</li>
-                <h2>Traitement</h2>
-                    <li><B>Arrosage : </B>Modéré, mais résiste à la sécheresse une fois bien établi.</li>
-                    <li><B>Lumière : </B> Préfère les endroits ombragés ou mi-ombragés, mais peut aussi tolérer le soleil direct.</li>
-                    <li><B>Température : </B> 18 à 24 °C plage de température optimale pour la croissance rapide des jeunes plants</li>
-                <h2>Cycle de Vie</h2>
-                <li>Jeune plante :  Les jeunes plants de lierre se développent mieux dans des conditions relativement tempérées et modérées.</li>
-                <li>Croissance :  Moyenne à lente, idéale pour les haies.</li>
-                <li>Floraison : Produits de petites fleurs vert-jaune, suivies de baies noires.</li>
-                <li>Maturité : Le lierre anglais atteint généralement sa maturité en 3 à 5 ans.</li>
-                <li>Multiplication : Par bouturage ou marcottage.</li>
-                <h2>Conseils de Culture</h2>
-                <ul>
-                    <li>Idéale pour le jardinage vertical, les haies, ou même pour ajouter de la verdure à l'intérieur.</li>
-                    <li>Son feuillage reste vert toute l’année.</li>
-                    <li>Forme une barrière dense et coupe-vents.</li>
-                    </li>
-                </ul>
-            </div>
+      </div>
+
+      <div class="card">
+        <img src="decoration\20250422_160613.jpg" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Rhoéo Spathacea</h3>
+          <p>Une plante d’intérieur iconique grâce à ses grandes feuilles découpées et son allure exotique.</p>
+          <p class="price">A partir de 250dh</p>
+          <a href="https://wa.link/zcb3zj" class="whatsapp-button" target="_blank" onclick="return confirmerCommande(); ">Commander via WhatsApp</a>
         </div>
-        <div class="plant-info">
-            <img src="c:\Users\user\Desktop\Prototype\Contribution_ecologique\ficus.jfif" alt="Plant Image">
-            <div class="details">
-                <h2>Ficus elastica</h2>
-                <p>
-                    Le Ficus elastica<I> arbre à caoutchouc</I>une plante populaire en intérieur, surtout pour sa capacité à purifier l'air et ses grandes feuilles brillantes.
-                </p>
-                <h2>Caractéristiques principales</h2>
-                <li><B>Origine :</B> Forêts tropicales de l'Asie du Sud-Est</li>
-                <li><B>Feuillage: </B> Grandes feuilles ovales, coriaces, et luisantes.</li>
-                <li><B>Hauteur : </B> 2 à 3 mètres en intérieur et jusqu’à 30 mètres dans son habitat naturel.</li>
-                <h2>Traitement</h2>
-                    <li><B>Arrosage : </B>Laissez sécher le sol entre les arrosages pour éviter le pourrissement des racines.</li>
-                    <li><B>Lumière : </B> Préfère les endroits ombragés ou mi-ombragés, mais peut aussi tolérer le soleil direct.</li>
-                    <li><B>Température : </B> Idéale entre 18 et 24 °C. Ne tolère pas le froid en dessous de 10 °C.</li>
-                <h2>Cycle de Vie</h2>
-                <li>Jeune plante :  Les jeunes plants de lierre se développent mieux dans des conditions relativement tempérées et modérées.</li>
-                <li>Croissance :  Moyenne à lente, idéale pour les haies.</li>
-                <li>Floraison : Rarement en intérieur, mais produit des petites fleurs insignifiantes suivies de fruits dans son habitat naturel.</li>
-                <li>Maturité : Peut grandir rapidement dans des conditions idéales, atteignant sa taille adulte en 2 à 3 ans.</li>
-                <li>Multiplication : Par bouturage ou marcottage.</li>
-                <h2>Conseils de Culture</h2>
-                <ul>
-                    <li>Le Ficus elastica est apprécié pour son entretien relativement facile et son aspect décoratif.</li>
-                    <li>Admet une capacité à purifier l'air.</li>
-                    <li>produit un latex (un liquide blanc et visqueux) lorsqu'il est coupé ou blessé.</li>
-                    </li>
-                </ul>
-            </div>
+      </div>
+
+      <div class="card">
+        <img src="decoration\20250422_160914.jpg" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Aeonium noir "Zwartkop"</h3>
+          <p>Une plante d’intérieur iconique grâce à ses grandes feuilles découpées et son allure exotique.</p>
+          <p class="price">A partir de 250dh</p>
+          <a href="https://wa.link/zcb3zj" class="whatsapp-button" target="_blank" onclick="return confirmerCommande(); ">Commander via WhatsApp</a>
         </div>
-        <div class="plant-info">
-            <img src="c:\Users\user\Desktop\Prototype\decoration\peacelily.jfif" alt="Plant Image">
-            <div class="details">
-                <h2>Spathiphyllum</h2>
-                <p>
-                    Le Spathiphyllum<I> Lys de la Paix</I> une plante d'intérieur très populaire pour son élégance et sa facilité d'entretien. 
-                </p>
-                <h2>Caractéristiques principales</h2>
-                <li><B>Origine :</B> Forêts tropicales humides d'Amérique centrale et d'Amérique du Sud</li>
-                <li><B>Feuillage: </B> Vert foncé, brillant et lancéolé.</li>
-                <li><B>Hauteur : </B> entre 30 cm et 1 mètre de hauteur, selon la variété.</li>
-                <h2>Traitement</h2>
-                    <li><B>Arrosage : </B>Arrosez lorsque la surface du sol est sèche au toucher.</li>
-                    <li><B>Lumière : </B> Préfère une lumière indirecte et tamisée. Évitez le soleil direct, qui peut brûler les feuilles.</li>
-                    <li><B>Température : </B> Idéalement entre 18°C et 24°C. Évitez les courants d'air froids et les températures inférieures à 13°C.</li>
-                <h2>Cycle de Vie</h2>
-                <li>Jeune plante : Leur croissance est plus lente au début un feuillage moins dense et produisent peu de fleurs.</li>
-                <li>Croissance :  Modérée, mais régulière avec des soins appropriés.</li>
-                <li>Floraison : Blanches, en forme de spathe, elles ressemblent à des fleurs de calla. Elles apparaissent principalement au printemps et en été.</li>
-                <li>Maturité : Une plante mature (2-3 ans) a un feuillage dense et produit régulièrement des fleurs.</li>
-                <li>Multiplication : Se multiplie principalement par division de la touffe.</li>
-                <h2>Conseils de Culture</h2>
-                <ul>
-                    <li>Le Spathiphyllum vous alerte lorsqu'il a besoin d'eau en laissant ses feuilles légèrement flétrir.</li>
-                    <li>Ceux qui veulent purifier l'air de leur maison ou bureau.</li>
-                    <li>Feuilles jaunes souvent causées par un excès d'eau ou un manque de nutriments. Ajustez l'arrosage et fertilisez régulièrement.</li>
-                    </li>
-                </ul>
-            </div>
+      </div>
+
+      <div class="card">
+        <img src="decoration\20250422_160419.jpg" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Gazania</h3>
+          <p>Une plante d’intérieur iconique grâce à ses grandes feuilles découpées et son allure exotique.</p>
+          <p class="price">A partir de 250dh</p>
+          <a href="https://wa.link/zcb3zj" class="whatsapp-button" target="_blank" onclick="return confirmerCommande(); ">Commander via WhatsApp</a>
         </div>
+      </div>
+      
+      <div class="card">
+        <img src="decoration\coleus.jpg" alt="Plante Verte">
+        <div class="card-content">
+          <h3>Coleus</h3>
+          <p>Une plante d’intérieur iconique grâce à ses grandes feuilles découpées et son allure exotique.</p>
+          <p class="price">A partir de 250dh</p>
+          <a href="https://wa.link/zcb3zj" class="whatsapp-button" target="_blank" onclick="return confirmerCommande(); ">Commander via WhatsApp</a>
+        </div>
+      </div>
+      <!-- Ajoutez d'autres cartes produits au besoin -->
     </section>
-    </main>
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 ArDalil. Tous droits réservés.</p>
-    </footer>
+  </div>
+  
+  <!-- Pied de page -->
+  <footer>
+    <p>&copy; 2025 ArDalil. Tous droits réservés.</p>
+  </footer>
+  
+  <!-- Script JavaScript pour le comportement du header lors du scroll -->
+  <script>
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('fixed');
+      } else {
+        header.classList.remove('fixed');
+      }
+    });
+  </script>
 </body>
 </html>
