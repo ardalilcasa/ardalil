@@ -149,13 +149,13 @@
 
          /* Le Saviez-vous Section Styles */
         .info-block {
-            padding: 220px 20px;
+            padding: 100px 20px;
             background-color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: space-between;
             max-width: 1200px;
-            height: 300px;
+            height: auto;
             margin: 0 auto;
             position: relative;
             overflow: hidden;  
@@ -200,19 +200,86 @@
         .info-block .btn:hover {
             background-color: #2d4a1d;
         }
+     
+        .info-vid {
+    margin-left: 25px; /* espace entre la vidéo et le texte */
+}
 
-        .info-img {
-            flex: 1;
-            text-align: left; /* Align image to the left */
-        }
+.info-content {
+    flex: 1;
+    text-align: left;
+    padding-right: 60px; /* augmenté pour plus d'espace */
+}
+        .info-vid video {
+    width: 100%;
+    max-width: 300px; /* Ajuste cette valeur selon la taille que tu souhaites */
+    height: auto;
+    border-radius: 10px; /* Optionnel pour des coins arrondis */
+    object-fit: cover;
+    display: block;
+    margin: 0 auto; /* Pour centrer horizontalement la vidéo */
+}
+.nouveaute-section {
+    padding: 60px 20px;
+    background-color: #f0f4ef;
+    text-align: center;
+}
 
-        .info-img img {
-            width: 80%;
-            height: 600px;
-            
-            border-radius: 10px; /* Optional: Add rounded corners */
-        }
-  
+.nouveaute-section h2 {
+    font-size: 36px;
+    color: #3f6b28;
+    margin-bottom: 50px;
+    font-family: 'Playfair Display', serif;
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    font-size: 20px;
+    color: #3f6b28;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3f6b28;
+}
 
         @keyframes bounce {
             0%, 100% {
@@ -371,19 +438,34 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
-        /* Footer Styles */
-        footer {
-            background-color: #ffffff;
-            color: #3f6b28;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-        }
+        
+/* Footer */
+footer {
+    background: #758467;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
 
-        footer p {
-            margin: 0;
-            font-size: 14px;
-        }
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-content p {
+    margin-bottom: 10px;
+}
+
+.footer-content .socials a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.footer-content .socials img {
+    width: 30px;
+    height: 30px;
+}
         
         /* Media Queries for Responsiveness */
 @media (max-width: 1200px) {
@@ -404,9 +486,6 @@
         padding: 100px 20px;
     }
 
-    .info-img img {
-        height: 400px;
-    }
 }
 
 @media (max-width: 992px) {
@@ -447,11 +526,6 @@
 
     .info-content {
         padding-right: 0;
-    }
-
-    .info-img img {
-        width: 100%;
-        height: auto;
     }
 
     .nouveaute-section .product {
@@ -555,7 +629,7 @@
     <header>
         <div class="logo-container">
         <div class="logo">
-            <img src="pics/logoardalil.png" alt="ArDalil Logo">
+            <img src="logoardalil.PNG" alt="ArDalil Logo">
         </div>
         <div class="slogan">
             <span>Grow green,</span>
@@ -581,48 +655,48 @@
             <a href="#boutique" class="buy-now-button">Achetez vos plantes maintenant</a>
         </div>
         <div class="image-container">
-            <img src="pics/Plant3.jfif" alt="Nature Image">
+            <img src="c:\Users\user\Desktop\Prototype\pics\Plant3.jfif" alt="Nature Image">
         </div>
     </section>
 
      <!-- Le Saviez-vous Section -->
-    <section class="info-block">
-        <div class="info-img">
-            <img src="decoration/lierre.jfif" alt="Nature Image">
+<section class="info-block">
+    <div class="info-vid">
+        <video src="pics\mimosa.mp4" autoplay muted loop playsinline></video>
+    </div>
+    <div class="info-content">
+        <div class="icon">🌿</div>
+        <div class="information">
+            <h2>Le saviez-vous ?</h2>
+            <span>Le mimosa pudica est une plante fascinante connue pour sa sensibilité au toucher.</span>
+            <span>Dès qu'on la touche, ses feuilles se rétractent rapidement en réaction.</span>
+            <span>Ce phénomène, appelé thigmonastie, est un mécanisme de défense naturel.</span>
+            <span>Elle est souvent utilisée pour éveiller la curiosité en botanique.</span>
         </div>
-        <div class="info-content">
-            <div class="icon">🌿</div>
-            <div class="information">
-                <h2>Le saviez-vous ?</h2>
-                <span>Le lierre anglais est une plante grimpante aux feuilles persistantes,</span>
-                <span>souvent cultivée en intérieur pour ses qualités esthétiques et dépolluantes.</span> 
-                <span>Cette plante est efficace pour éliminer des polluants tels que </span>
-                <span>le formaldéhyde et le benzène présents dans l'air intérieur.</span>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 
     <!-- Boutique Section -->
     <section id="nouveaute" class="nouveaute-section">
-        <h2>Nouveauté</h2>
+        <h2>Nos nouveautés</h2>
         <div class="products">
-            <div class="product">
+            <div class="product-card">
                 <img src="decoration/sansevieria.jfif" alt="Product 1">
                 <h3>Sansevieria </h3>
                 <p>La Nouvelle Star de Votre Déco !</p>
-                <p class="price">170dh</p>
+                <span class="price">170dh</span>
             </div>
-            <div class="product">
-                <img src="decoration\thuja.jfif" alt="Product 2">
+            <div class="product-card">
+                <img src="c:\Users\user\Desktop\Prototype\decoration\thuja.jfif" alt="Product 2">
                 <h3>Thuya Orientalis Citronné</h3>
                 <p>Une plante aromatique qui allie </br>beauté et senteur envoûtante !</p>
-                <p class="price">157dh</p>
+                <span class="price">157dh</span>
             </div>
-            <div class="product">
-                <img src="decoration\peacelily.jfif" alt="Product 3">
+            <div class="product-card">
+                <img src="c:\Users\user\Desktop\Prototype\decoration\peacelily.jfif" alt="Product 3">
                 <h3>Spathiphyllum</h3>
                 <p>Lys de la Paix une plante d'intérieur.</p>
-                <p class="price">120dh</p>
+                <span class="price">120dh</span>
             </div>
         </div>
     </section>
@@ -660,7 +734,16 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 ArDalil. Tous droits réservés.</p>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 ArDalil. Tous droits réservés.</p>
+                <div class="socials">
+                    <a href="https://www.instagram.com/_ardalil_"><img src= "pics\instagram.png" alt="Instagram"></a>
+                    <a href="https://wa.me/message/J5QZ5WWP7NKCJ1"><img src="pics\whatsapp.png" alt="WhatsApp"></a>
+                    <a href="https://wa.me/message/J5QZ5WWP7NKCJ1"><img src="pics\facebook.png" alt="Facebook"></a>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
