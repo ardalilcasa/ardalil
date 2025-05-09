@@ -257,9 +257,9 @@
     </div>
   </header>
   <script>
-  function confirmerCommande() {
+  function envoyerCommande(element) {
     const nomPlante = element.getAttribute("data-nom");
-    const numeroWhatsApp = "212600000000"; // Mets ici ton vrai numéro sans le +
+    const numeroWhatsApp = "212 719-462752"; // Mets ici ton vrai numéro sans le +
     const message = `Bonjour, je souhaite commander la plante suivante : ${nomPlante}`;
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(message)}`;
 
