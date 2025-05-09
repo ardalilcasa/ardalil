@@ -258,7 +258,14 @@
   </header>
   <script>
   function confirmerCommande() {
-    return confirm("Vous allez être redirigé vers WhatsApp pour envoyer votre commande. Voulez-vous continuer ?");
+    const nomPlante = element.getAttribute("data-nom");
+    const numeroWhatsApp = "212600000000"; // Mets ici ton vrai numéro sans le +
+    const message = `Bonjour, je souhaite commander la plante suivante : ${nomPlante}`;
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(message)}`;
+
+    // Redirige vers WhatsApp avec le message
+    window.open(url, "_blank");
+    return false; // Empêche le lien par défaut de se suivre
   }
   </script>
   <!-- Contenu principal -->
@@ -322,7 +329,7 @@
           <h3>Peace lily</h3>
           <p>Le Spathiphyllum est très apprécié pour ses feuilles vertes brillantes et ses élégantes fleurs blanches.</p>
           <p class="price">95dh</p>
-          <a href="https://wa.link/zcb3zj" class="whatsapp-button" target="_blank" onclick="return confirmerCommande(); ">Commander via WhatsApp</a>
+          <a href="#" onclick="envoyerCommande(this)" data-nom="Ficus Elastica">Commander via WhatsApp</a>
         </div>
       </div>
 
@@ -410,10 +417,10 @@
       </div>
 
       <div class="card">
-        <img src="production\pverte2.jpg" alt="Plante Verte">
+        <img src="production\hippeastrum.jpg" alt="Plante Verte">
         <div class="card-content">
           <h3>Hippeastrum</h3>
-          <p>parfait pour ajouter de la vie à un bureau, un rebord de fenêtre ou un coin de salon. </p>
+          <p>Une plante bulbeuse spectaculaire, très populaire pour sa floraison majestueuse en intérieur.</p>
           <p class="price">96dh</p>
           <a href="https://wa.link/zcb3zj" class="whatsapp-button" target="_blank" onclick="return confirmerCommande(); ">Commander via WhatsApp</a>
         </div>
