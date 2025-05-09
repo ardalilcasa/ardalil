@@ -261,7 +261,7 @@
   function envoyerCommande(element) {
     const nomPlante = element.getAttribute("data-nom");
     const numeroWhatsApp = "212 719-462752"; // Mets ici ton vrai numéro sans le +
-    const message = `Bonjour, je souhaite commander la plante suivante : ${nomPlante}`;
+    const message = `Bonjour, je souhaite commander la plante ${nomPlante}`;
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(message)}`;
 
     // Redirige vers WhatsApp avec le message
