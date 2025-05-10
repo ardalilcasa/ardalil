@@ -687,7 +687,7 @@ footer {
                 <p>La Nouvelle Star de Votre Déco !</p>
             </div>
         </a>
-            <div class="product-card">
+            <div class="product-card" onclick="scrollToCard('croton-carte')">
                 <img src="production/thuja.jpg" alt="Product 2">
                 <h3>Thuya Orientalis Citronné</h3>
                 <p>Une plante aromatique qui allie </br>beauté et senteur envoûtante !</p>
@@ -743,5 +743,13 @@ footer {
             </div>
         </div>
     </footer>
+    <script>
+  function scrollToCard(cardId) {
+    const element = document.getElementById(cardId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
 </body>
 </html>
