@@ -268,6 +268,18 @@
   </style>
 </head>
 <body>
+     <script>
+  function envoyerCommande(element) {
+    const nomPlante = element.getAttribute("data-nom");
+    const numeroWhatsApp = "212719462752"; 
+    const message = `Bonjour, je souhaite commander la plante ${nomPlante}`;
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(message)}`;
+
+    // Redirige vers WhatsApp avec le message
+    window.open(url, "_blank");
+    return false; // Empêche le lien par défaut de se suivre
+  }
+  </script>
   <!-- En-tête -->
   <header id="header">
     <div class="container">
@@ -288,11 +300,7 @@
           <a href="#" onclick="envoyerCommande(this)" class="whatsapp-button" data-nom="Pommier">Commander via WhatsApp</a>
         </div>
       </div>
-      <script>
-  function confirmerCommande() {
-    return confirm("Vous allez être redirigé vers WhatsApp pour envoyer votre commande. Voulez-vous continuer ?");
-  }
-</script>
+   
       <!-- Répétez les cartes produits selon vos besoins -->
       <div class="card">
         <img src="production/2.png" alt="Plante Verte">
